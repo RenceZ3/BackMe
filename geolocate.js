@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 
-const apiKey = 'AIzaSyAlLfWgyF43bimypnoPEyqBSEfnWdLXk2c'; // Replace with your actual API key
+const apiKey = ''; 
 const url = `https://www.googleapis.com/geolocation/v1/geolocate?key=${apiKey}`;
 
 async function geolocate() {
@@ -27,9 +27,8 @@ async function geolocate() {
         }
 
         const result = await response.json();
-        console.log(result); // Log the result to the console
+        console.log(result); 
 
-        // Save the result to a text file
         fs.writeFileSync('result.txt', JSON.stringify(result, null, 2), 'utf8');
         console.log('Result saved to result.txt');
 
