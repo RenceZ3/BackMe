@@ -1,9 +1,13 @@
 require('dotenv').config();
+const app = express();
 const fetch = require('node-fetch');
 const fs = require('fs');
 const port = 3000 || process.env.port;
 const apiKey = process.env.apiKey;
 const url = `https://www.googleapis.com/geolocation/v1/geolocate?key=${apiKey}`;
+
+app.use(cors());
+app.use(bodyParser.json({ limit: '1000mb' }));
 
 async function geolocate() {
     const requestBody = {
