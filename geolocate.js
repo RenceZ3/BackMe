@@ -1,6 +1,8 @@
+require('dotenv').config();
 const fetch = require('node-fetch');
 const fs = require('fs');
 
+const apiKey = process.env.apiKey;
 const url = `https://www.googleapis.com/geolocation/v1/geolocate?key=${apiKey}`;
 
 async function geolocate() {
