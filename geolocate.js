@@ -1,7 +1,7 @@
 require('dotenv').config();
 const fetch = require('node-fetch');
 const fs = require('fs');
-
+const port = 3000 || process.env.port;
 const apiKey = process.env.apiKey;
 const url = `https://www.googleapis.com/geolocation/v1/geolocate?key=${apiKey}`;
 
@@ -40,3 +40,8 @@ async function geolocate() {
 
 // Call the function
 geolocate();
+
+
+app.listen(port, ()=>{
+    console.log('Port listening...', port);
+})
